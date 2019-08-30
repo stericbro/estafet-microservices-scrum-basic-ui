@@ -93,8 +93,8 @@
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:https://github.com/Estafet-LTD/estafet-microservices-scrum-basic-ui.git</connection>
-		<developerConnection>scm:git:https://github.com/Estafet-LTD/estafet-microservices-scrum-basic-ui.git</developerConnection>
+		<connection>scm:git:https://github.com/stericbro/estafet-microservices-scrum-basic-ui.git</connection>
+		<developerConnection>scm:git:https://github.com/stericbro/estafet-microservices-scrum-basic-ui.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 

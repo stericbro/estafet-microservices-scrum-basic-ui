@@ -13,7 +13,7 @@ spec:
   runPolicy: Serial
   source:
     git:
-      uri: "https://github.com/Estafet-LTD/estafet-microservices-scrum-basic-ui"
+      uri: "https://github.com/stericbro/estafet-microservices-scrum-basic-ui"
   strategy:
     jenkinsPipelineStrategy:
       jenkinsfilePath: pipelines/ci-pipeline.groovy
