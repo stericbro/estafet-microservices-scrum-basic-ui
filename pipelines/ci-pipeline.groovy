@@ -9,7 +9,7 @@ node("maven") {
 
 	stage("update wiremock") {
 		def files = findFiles(glob: 'src/integration-test/resources/*.json')
-		files.each { file -> 
+		files.each { file ->
 			def json = readFile(file.path)
 			def response = httpRequest url: "http://wiremock-docker.${project}.svc:8080/__admin/mappings/new", httpMode: "POST", validResponseCodes: "201", requestBody: json
 		}
@@ -25,14 +25,14 @@ node("maven") {
 		withEnv( [ "BASIC_UI_URI=http://${microservice}.${project}.svc:8080" ]) {
 			withMaven(mavenSettingsConfig: 'microservices-scrum') {
  				sh "mvn clean verify -P integration-test"
-			} 
-		} 
+			}
+		}
 	}
 	
 	stage("deploy snapshots") {
 		withMaven(mavenSettingsConfig: 'microservices-scrum') {
  			sh "mvn clean deploy -Dmaven.test.skip=true"
-		} 
+		}
 	}	
 	
 	stage("promote to test") {

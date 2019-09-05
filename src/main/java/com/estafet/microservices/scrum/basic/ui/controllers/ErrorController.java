@@ -10,6 +10,6 @@ public class ErrorController {
 	
 	@GetMapping("/503")
 	public String error503() {
-		return "error503"; 
+		return "error503";
 	}
 }
