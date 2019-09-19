@@ -1,4 +1,4 @@
-node("xyz") {
+node("maven") {
 
 	def project = "dev"
 	def microservice = "basic-ui"
