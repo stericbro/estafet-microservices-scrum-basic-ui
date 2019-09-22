@@ -18,6 +18,9 @@ import com.estafet.microservices.scrum.basic.ui.service.StoryService;
 @Controller
 public class AcceptanceCriteriaController {
 
+	/**
+	 * The story service.
+	 */
 	@Autowired
 	private StoryService storyService;
 
