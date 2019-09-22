@@ -11,24 +11,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.estafet.microservices.scrum.basic.ui.model.AcceptanceCriterion;
 import com.estafet.microservices.scrum.basic.ui.service.StoryService;
 
+/**
+ * @author Dennis Williams, Estafet Ltd.
+ *
+ */
 @Controller
 public class AcceptanceCriteriaController {
 
 	@Autowired
 	private StoryService storyService;
-	
+
 	@GetMapping("/story/{id}/criteria")
-	public String criteriaForm(@PathVariable int id,  Model model) {
+	public String criteriaForm(@PathVariable final int id,  final Model model) {
 		model.addAttribute("criteria", new AcceptanceCriterion().init());
 		model.addAttribute("storyId", id);
 		return "criteria";
 	}
-	
+
 	@PostMapping("/story/{id}/criteria")
-	public String criteriaSubmit(@PathVariable int id, @ModelAttribute AcceptanceCriterion criteria) {
+	public String criteriaSubmit(@PathVariable final int id, @ModelAttribute final AcceptanceCriterion criteria) {
 		storyService.addAcceptanceCriteria(id, criteria);
 		return "redirect:/story/" + id;
 	}
-	
+
 }
 
