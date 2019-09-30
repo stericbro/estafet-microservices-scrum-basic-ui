@@ -9,16 +9,16 @@ public class ServiceHealth {
 	private String serviceName;
 	private String description;
 	private String status;
-	
+
 	public ServiceHealth() {
 
 	}
-	
+
 	public ServiceHealth(String serviceName, String description) {
 		this.serviceName = serviceName;
 		this.description = description;
 	}
-	
+
 	public String getServiceName() {
 		return serviceName;
 	}

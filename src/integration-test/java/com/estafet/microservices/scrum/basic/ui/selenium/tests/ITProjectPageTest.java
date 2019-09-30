@@ -13,7 +13,7 @@ import com.estafet.microservices.scrum.lib.selenium.pages.project.ProjectPage;
 public class ITProjectPageTest {
 
 	ProjectPage projectPage;
-	
+
 	@Before
 	public void before() {
 		projectPage = new ProjectPage("2");
@@ -45,12 +45,12 @@ public class ITProjectPageTest {
 	public void testClickProjectsBreadCrumb() {
 		assertTrue(projectPage.clickProjectsBreadCrumbLink().isLoaded());
 	}
-	
+
 	@Test
 	public void testClickProjectBreadCrumb() {
 		assertTrue(projectPage.clickProjectBreadCrumbLink().isLoaded("2"));
 	}
-	
+
 	@Test
 	public void testClickProjectBurndown() {
 		assertTrue(projectPage.clickProjectBurndownLink().isLoaded("2"));
@@ -60,7 +60,7 @@ public class ITProjectPageTest {
 	public void testClickSprintBurndown() {
 		assertTrue(projectPage.clickSprintBurndownLink().isLoaded("2", "1"));
 	}
-	
+
 	@Test
 	public void testActiveSprint() {
 		assertTrue(projectPage.clickActiveSprintLink().isLoaded("2", "1"));

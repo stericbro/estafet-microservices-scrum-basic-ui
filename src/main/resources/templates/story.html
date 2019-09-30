@@ -11,12 +11,12 @@
 		<div>
 			<div>
 				<h3>Acceptance Criteria <small><a th:href="@{/story/__${story.id}__/criteria}">Add Crtieria</a></small></h3>
-			</div>			
+			</div>
 			<ol>
 				<li th:each="criteria : ${story.criteria}">
 					<span th:text="${criteria.description}"></span>
 				</li>
-			</ol>			
+			</ol>
 		</div>
 		<div>
 			<h3>Tasks <small><a th:href="@{/story/__${story.id}__/task}">Add Task</a></small></h3>

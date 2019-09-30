@@ -45,6 +45,6 @@ public class SprintBoard {
 		this.completed = completed;
 	}
 
-	
+
 
 }

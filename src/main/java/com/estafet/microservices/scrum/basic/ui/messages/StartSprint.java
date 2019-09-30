@@ -3,7 +3,7 @@ package com.estafet.microservices.scrum.basic.ui.messages;
 public class StartSprint {
 
 	private int projectId;
-	
+
 	private int noDays;
 
 	public int getProjectId() {
@@ -21,7 +21,7 @@ public class StartSprint {
 	public void setNoDays(int noDays) {
 		this.noDays = noDays;
 	}
-	
-	
-	
+
+
+
 }

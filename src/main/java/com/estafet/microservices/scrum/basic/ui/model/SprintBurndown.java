@@ -23,7 +23,7 @@ public class SprintBurndown {
 	public Integer getNumber() {
 		return number;
 	}
-	
+
 	public String getName() {
 		return "Sprint #" + number;
 	}
@@ -31,31 +31,31 @@ public class SprintBurndown {
 	public List<SprintBurndownDay> getSprintDays() {
 		return sprintDays;
 	}
-	
+
 	public List<String> getDays() {
 		List<String> days = new ArrayList<String>(sprintDays.size());
 		for (SprintBurndownDay day : sprintDays) {
 			if (day.getSprintDay() != null) {
-				days.add(day.getSprintDay().substring(0, 10));	
+				days.add(day.getSprintDay().substring(0, 10));
 			} else {
 				days.add("Initial");
 			}
 		}
 		return days;
 	}
-	
+
 	public List<Integer> getActual() {
 		List<Integer> actual = new ArrayList<Integer>(sprintDays.size());
 		for (SprintBurndownDay day : sprintDays) {
 			if (day.getHoursTotal() != null) {
-				actual.add(day.getHoursTotal());	
+				actual.add(day.getHoursTotal());
 			} else {
 				break;
 			}
 		}
 		return actual;
 	}
-	
+
 	public List<Float> getIdeal() {
 		List<Float> ideal = new ArrayList<Float>(sprintDays.size());
 		for (SprintBurndownDay day : sprintDays) {
@@ -63,7 +63,7 @@ public class SprintBurndown {
 		}
 		return ideal;
 	}
-	
+
 	public String toJSON() {
 		try {
 			return new ObjectMapper().writeValueAsString(this);

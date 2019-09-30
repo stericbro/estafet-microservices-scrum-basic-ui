@@ -28,13 +28,13 @@ node("maven") {
 			}
 		}
 	}
-	
+
 	stage("deploy snapshots") {
 		withMaven(mavenSettingsConfig: 'microservices-scrum') {
  			sh "mvn clean deploy -Dmaven.test.skip=true"
 		}
-	}	
-	
+	}
+
 	stage("promote to test") {
 		openshiftTag namespace: project, srcStream: microservice, srcTag: 'latest', destinationNamespace: 'test', destinationStream: microservice, destinationTag: 'PrepareForTesting'
 	}

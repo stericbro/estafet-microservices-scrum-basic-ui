@@ -18,10 +18,10 @@ import io.opentracing.Tracer;
 
 @Service
 public class StoryService {
-			
+
 	@Autowired
 	private Tracer tracer;
-		
+
 	@Autowired
 	private RestTemplate restTemplate;
 

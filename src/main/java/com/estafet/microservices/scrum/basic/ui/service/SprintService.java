@@ -16,7 +16,7 @@ import io.opentracing.Tracer;
 
 @Service
 public class SprintService {
-	
+
 	@Autowired
 	private Tracer tracer;
 
@@ -72,7 +72,7 @@ public class SprintService {
 //		}
 		return days;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public String getLastSprintDay(int sprintId) {
 		tracer.activeSpan().setTag("sprint.id", sprintId);

@@ -11,7 +11,7 @@ import com.estafet.microservices.scrum.lib.selenium.pages.home.HomePage;
 public class ITHomePageTest {
 
 	HomePage homePage;
-	
+
 	@Before
 	public void before() throws Exception {
 		homePage = new HomePage();
@@ -24,7 +24,7 @@ public class ITHomePageTest {
 
 	@Test
 	public void testLinkToProjects() {
-		assertTrue(homePage.clickHereLink().isLoaded());		
+		assertTrue(homePage.clickHereLink().isLoaded());
 	}
 
 }

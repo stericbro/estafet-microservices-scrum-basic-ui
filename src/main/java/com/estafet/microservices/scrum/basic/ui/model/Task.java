@@ -29,7 +29,7 @@ public class Task {
 		this.initialHours =  ThreadLocalRandom.current().nextInt(1, 20);
 		return this;
 	}
-	
+
 	public Task setRemainingHours(Integer remainingHours) {
 		this.remainingHours = remainingHours;
 		return this;

@@ -13,10 +13,10 @@ public class SprintBoardService {
 
 	@Autowired
 	private Tracer tracer;
-	
+
 	@Autowired
 	private TaskService taskService;
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
 
@@ -37,7 +37,7 @@ public class SprintBoardService {
 		taskService.complete(sprintId, taskId);
 		return getSprintBoard(sprintId);
 	}
-	
-	
+
+
 
 }

@@ -12,7 +12,7 @@ public class AcceptanceCriteriaDetails {
 		this.criteria = criteria;
 		return this;
 	}
-	
-	
+
+
 
 }

@@ -12,7 +12,7 @@ public class AcceptanceCriterion {
 		description = "Acceptance #" + ThreadLocalRandom.current().nextInt(1, 10000);
 		return this;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -29,6 +29,6 @@ public class AcceptanceCriterion {
 		this.description = description;
 	}
 
-	
+
 
 }

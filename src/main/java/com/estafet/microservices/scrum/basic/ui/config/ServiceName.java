@@ -36,7 +36,7 @@ public enum ServiceName {
      * The name of the service
      */
 	private String  serviceName;
-	
+
 	/**
 	 * Construct from a service name.
 	 *

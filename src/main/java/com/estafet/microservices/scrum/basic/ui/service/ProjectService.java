@@ -14,16 +14,16 @@ import io.opentracing.Tracer;
 
 @Service
 public class ProjectService {
-	
+
 	@Autowired
 	private Tracer tracer;
-	
+
 	@Autowired
 	private StoryService storyService;
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
-	
+
 	public List<Project> getProjects() {
 		return RestHelper.getRestQuery(restTemplate, System.getenv("PROJECT_API_SERVICE_URI") + "/projects", Project.class);
 	}

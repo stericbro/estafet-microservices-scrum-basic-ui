@@ -14,7 +14,7 @@ public class Story {
 
 	@JsonIgnore
 	private RestTemplate restTemplate;
-	
+
 	private Integer id;
 
 	private Integer projectId;
@@ -40,7 +40,7 @@ public class Story {
 		this.storypoints = points[ThreadLocalRandom.current().nextInt(0, 7)];
 		return this;
 	}
-	
+
 	public Project getProject() {
 		return project;
 	}
@@ -89,7 +89,7 @@ public class Story {
 	public List<Task> getTasks() {
 		if (id != null) {
 			return restTemplate.getForObject(System.getenv("TASK_API_SERVICE_URI") + "/story/{storyId}/tasks",
-					List.class, id);	
+					List.class, id);
 		} else {
 			return new ArrayList<Task>();
 		}

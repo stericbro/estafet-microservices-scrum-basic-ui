@@ -29,7 +29,7 @@ public class ProjectBurndown {
 	public List<ProjectBurndownSprint> getSprints() {
 		return sprints;
 	}
-	
+
 	public List<String> getSprintNames() {
 		List<String> names = new ArrayList<String>(sprints.size());
 		for (ProjectBurndownSprint sprint : sprints) {
@@ -45,7 +45,7 @@ public class ProjectBurndown {
 		}
 		return ideal;
 	}
-	
+
 	public List<Integer> getActual() {
 		List<Integer> actual = new ArrayList<Integer>(sprints.size());
 		for (ProjectBurndownSprint sprint : sprints) {
@@ -53,5 +53,5 @@ public class ProjectBurndown {
 		}
 		return actual;
 	}
-	
+
 }

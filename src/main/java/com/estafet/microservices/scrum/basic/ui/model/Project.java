@@ -24,7 +24,7 @@ public class Project {
 		this.title = "My Project #" +  ThreadLocalRandom.current().nextInt(1, 10000);
 		return this;
 	}
-	
+
 	public Project addSprints(List<Sprint> sprints) {
 		this.sprints.addAll(sprints);
 		return this;

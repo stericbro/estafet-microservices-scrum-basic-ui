@@ -5,7 +5,7 @@ public class UpdateRemainingTime {
 	private int taskId;
 
 	private int remainingTime;
-	
+
 	private String updateTime;
 
 	public String getUpdateTime() {

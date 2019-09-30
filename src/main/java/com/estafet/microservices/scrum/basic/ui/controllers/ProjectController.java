@@ -34,7 +34,7 @@ public class ProjectController {
 	@GetMapping("/newproject")
 	public String newProjectForm(Model model) {
 		model.addAttribute("project", new Project().init());
-		model.addAttribute("projectServiceIsAlive", true);		
+		model.addAttribute("projectServiceIsAlive", true);
 		return "newproject";
 	}
 

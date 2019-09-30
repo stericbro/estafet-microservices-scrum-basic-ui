@@ -7,7 +7,7 @@ public class WaitUntilStoryUpdated extends WaitUntil {
 
 	private Integer storyId;
 	private StoryService storyService;
-	
+
 	public WaitUntilStoryUpdated(Integer storyId, StoryService storyService) {
 		this.storyId = storyId;
 		this.storyService = storyService;

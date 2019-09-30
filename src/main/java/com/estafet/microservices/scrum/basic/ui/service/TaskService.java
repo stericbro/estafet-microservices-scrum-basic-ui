@@ -11,19 +11,19 @@ import io.opentracing.Tracer;
 
 @Service
 public class TaskService {
-	
+
 	@Autowired
 	private Tracer tracer;
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
-	
+
 	@Autowired
 	private SprintService sprintService;
-	
+
 	@Autowired
 	private StoryService storyService;
-	
+
 	public void claim(int taskId) {
 		tracer.activeSpan().setTag("task.id", taskId);
 		restTemplate.postForObject(System.getenv("TASK_API_SERVICE_URI") + "/task/{id}/claim", null,
