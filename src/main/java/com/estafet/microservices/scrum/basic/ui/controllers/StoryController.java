@@ -15,30 +15,30 @@ import com.estafet.microservices.scrum.basic.ui.service.StoryService;
 @Controller
 public class StoryController {
 
-	@Autowired
-	private StoryService storyService;
+    @Autowired
+    private StoryService storyService;
 
-	@RequestMapping("/story/{id}")
-	public String story(@PathVariable int id, Model model) {
-		Story story = storyService.getStory(id);
-		model.addAttribute("story", story);
-		model.addAttribute("storyId", story.getId());
-		model.addAttribute("projectId", story.getProjectId());
-		model.addAttribute("sprintId", story.getSprintId());
-		return "story";
-	}
+    @RequestMapping("/story/{id}")
+    public String story(@PathVariable int id, Model model) {
+        Story story = storyService.getStory(id);
+        model.addAttribute("story", story);
+        model.addAttribute("storyId", story.getId());
+        model.addAttribute("projectId", story.getProjectId());
+        model.addAttribute("sprintId", story.getSprintId());
+        return "story";
+    }
 
-	@GetMapping("/addstory/{id}")
-	public String addStoryForm(@PathVariable int id, Model model) {
-		model.addAttribute("story", new Story().init());
-		model.addAttribute("projectId", id);
-		return "addstory";
-	}
+    @GetMapping("/addstory/{id}")
+    public String addStoryForm(@PathVariable int id, Model model) {
+        model.addAttribute("story", new Story().init());
+        model.addAttribute("projectId", id);
+        return "addstory";
+    }
 
-	@PostMapping("/addstory/{id}")
-	public String addStorySubmit(@PathVariable int id, @ModelAttribute Story story) {
-		story = storyService.addStory(id, story);
-		return "redirect:/project/" + id;
-	}
+    @PostMapping("/addstory/{id}")
+    public String addStorySubmit(@PathVariable int id, @ModelAttribute Story story) {
+        story = storyService.addStory(id, story);
+        return "redirect:/project/" + id;
+    }
 
 }

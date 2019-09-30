@@ -5,18 +5,18 @@ import com.estafet.microservices.scrum.lib.commons.wait.WaitUntil;
 
 public class WaitUntilStoryUpdated extends WaitUntil {
 
-	private Integer storyId;
-	private StoryService storyService;
+    private Integer storyId;
+    private StoryService storyService;
 
-	public WaitUntilStoryUpdated(Integer storyId, StoryService storyService) {
-		this.storyId = storyId;
-		this.storyService = storyService;
-	}
+    public WaitUntilStoryUpdated(Integer storyId, StoryService storyService) {
+        this.storyId = storyId;
+        this.storyService = storyService;
+    }
 
-	@Override
-	public boolean success() {
-		Story story = storyService.getStory(storyId);
-		return story.getStatus().equals("Planning") || story.getStatus().equals("Progress");
-	}
+    @Override
+    public boolean success() {
+        Story story = storyService.getStory(storyId);
+        return story.getStatus().equals("Planning") || story.getStatus().equals("Progress");
+    }
 
 }

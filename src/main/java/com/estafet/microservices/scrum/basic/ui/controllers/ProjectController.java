@@ -15,40 +15,40 @@ import com.estafet.microservices.scrum.basic.ui.service.ProjectService;
 @Controller
 public class ProjectController {
 
-	@Autowired
-	private ProjectService projectService;
+    @Autowired
+    private ProjectService projectService;
 
-	@RequestMapping("/projects")
-	public String projects(Model model) {
-		model.addAttribute("projects", projectService.getProjects());
-		return "projects";
-	}
+    @RequestMapping("/projects")
+    public String projects(Model model) {
+        model.addAttribute("projects", projectService.getProjects());
+        return "projects";
+    }
 
-	@RequestMapping("/project/{id}")
-	public String project(@PathVariable int id, Model model) {
-		model.addAttribute("project", projectService.getProject(id));
-		model.addAttribute("projectId", id);
-		return "project";
-	}
+    @RequestMapping("/project/{id}")
+    public String project(@PathVariable int id, Model model) {
+        model.addAttribute("project", projectService.getProject(id));
+        model.addAttribute("projectId", id);
+        return "project";
+    }
 
-	@GetMapping("/newproject")
-	public String newProjectForm(Model model) {
-		model.addAttribute("project", new Project().init());
-		model.addAttribute("projectServiceIsAlive", true);
-		return "newproject";
-	}
+    @GetMapping("/newproject")
+    public String newProjectForm(Model model) {
+        model.addAttribute("project", new Project().init());
+        model.addAttribute("projectServiceIsAlive", true);
+        return "newproject";
+    }
 
-	@PostMapping("/newproject")
-	public String newProjectSubmit(@ModelAttribute Project project) {
-		project = projectService.createProject(project);
-		return "redirect:/project/" + project.getId();
-	}
+    @PostMapping("/newproject")
+    public String newProjectSubmit(@ModelAttribute Project project) {
+        project = projectService.createProject(project);
+        return "redirect:/project/" + project.getId();
+    }
 
-	@RequestMapping("/project/{id}/burndown")
-	public String burndown(@PathVariable int id, Model model) {
-		model.addAttribute("project", projectService.getBurndown(id));
-		model.addAttribute("projectId", id);
-		return "projectburndown";
-	}
+    @RequestMapping("/project/{id}/burndown")
+    public String burndown(@PathVariable int id, Model model) {
+        model.addAttribute("project", projectService.getBurndown(id));
+        model.addAttribute("projectId", id);
+        return "projectburndown";
+    }
 
 }

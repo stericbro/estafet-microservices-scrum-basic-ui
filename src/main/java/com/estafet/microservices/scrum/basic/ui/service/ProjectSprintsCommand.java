@@ -12,32 +12,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ProjectSprintsCommand extends WaitUntilCommand<List<Sprint>> {
 
-	private Integer projectId;
-	private RestTemplate restTemplate;
+    private Integer projectId;
+    private RestTemplate restTemplate;
 
-	public ProjectSprintsCommand(Integer projectId, RestTemplate restTemplate) {
-		this.projectId = projectId;
-		this.restTemplate = restTemplate;
-	}
+    public ProjectSprintsCommand(Integer projectId, RestTemplate restTemplate) {
+        this.projectId = projectId;
+        this.restTemplate = restTemplate;
+    }
 
-	@Override
-	public boolean isReady(List<Sprint> result) {
-		return !result.isEmpty();
-	}
+    @Override
+    public boolean isReady(List<Sprint> result) {
+        return !result.isEmpty();
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public List<Sprint> result() {
-		List objects = restTemplate.getForObject(System.getenv("SPRINT_API_SERVICE_URI") + "/project/{id}/sprints",
-				List.class, projectId);
-		List<Sprint> sprints = new ArrayList<Sprint>();
-		ObjectMapper mapper = new ObjectMapper();
-		for (Object object : objects) {
-			Sprint sprint = mapper.convertValue(object, new TypeReference<Sprint>() {
-			});
-			sprints.add(sprint);
-		}
-		return sprints;
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public List<Sprint> result() {
+        List objects = restTemplate.getForObject(System.getenv("SPRINT_API_SERVICE_URI") + "/project/{id}/sprints",
+                List.class, projectId);
+        List<Sprint> sprints = new ArrayList<Sprint>();
+        ObjectMapper mapper = new ObjectMapper();
+        for (Object object : objects) {
+            Sprint sprint = mapper.convertValue(object, new TypeReference<Sprint>() {
+            });
+            sprints.add(sprint);
+        }
+        return sprints;
+    }
 
 }

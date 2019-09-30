@@ -1,30 +1,30 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="default">
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="default">
 <body>
-	<div layout:fragment="content">
-		<h1>New Project</h1>
-		<form action="#" th:action="@{/newproject}" th:object="${project}"
-			method="post">
-			<div class="row">
-				<div class="col-md-2"><label>Title:</label></div>
-				<div class="col-md-6"><input type="text" th:field="*{title}" /></div>
-			</div>
-			<div class="row">
-				<div class="col-md-2"><label>No Sprints:</label></div>
-				<div class="col-md-6"><input type="text" th:field="*{noSprints}" /></div>
-			</div>
-			<div class="row">
-				<div class="col-md-2"><label>Sprint Length (Days):</label></div>
-				<div class="col-md-6"><input type="text" th:field="*{sprintLengthDays}" /></div>
-			</div>
-			<div class="row">
-				<div class="col-md-8">
-					<input type="submit" value="Submit" />
-				</div>
-			</div>
-		</form>
-	</div>
+    <div layout:fragment="content">
+        <h1>New Project</h1>
+        <form action="#" th:action="@{/newproject}" th:object="${project}"
+            method="post">
+            <div class="row">
+                <div class="col-md-2"><label>Title:</label></div>
+                <div class="col-md-6"><input type="text" th:field="*{title}" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label>No Sprints:</label></div>
+                <div class="col-md-6"><input type="text" th:field="*{noSprints}" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label>Sprint Length (Days):</label></div>
+                <div class="col-md-6"><input type="text" th:field="*{sprintLengthDays}" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

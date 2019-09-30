@@ -10,47 +10,47 @@ public enum ServiceName {
     /**
      * The project service.
      */
-	PROJECT_SERVICE("project-api"),
+    PROJECT_SERVICE("project-api"),
 
     /**
      * The sprint service.
      */
-	SPRINT_SERVICE("sprint-api"),
+    SPRINT_SERVICE("sprint-api"),
 
     /**
      * The story service.
      */
-	STORY_SERVICE("story-api"),
+    STORY_SERVICE("story-api"),
 
     /**
      * The task service.
      */
-	TASK_SERVICE("task-api"),
+    TASK_SERVICE("task-api"),
 
     /**
      * The health service for monitoring.
      */
-	HEALTH_SERVICE("health-api");
+    HEALTH_SERVICE("health-api");
 
     /**
      * The name of the service
      */
-	private String  serviceName;
+    private String  serviceName;
 
-	/**
-	 * Construct from a service name.
-	 *
-	 * @param theServiceName
-	 *         The name of the service.
-	 */
-	private ServiceName(final String theServiceName) {
-		serviceName = theServiceName;
-	}
+    /**
+     * Construct from a service name.
+     *
+     * @param theServiceName
+     *         The name of the service.
+     */
+    private ServiceName(final String theServiceName) {
+        serviceName = theServiceName;
+    }
 
-	/**
-	 * @return the name of the service.
-	 */
-	public String getServiceName() {
-		return serviceName;
-	}
+    /**
+     * @return the name of the service.
+     */
+    public String getServiceName() {
+        return serviceName;
+    }
 }

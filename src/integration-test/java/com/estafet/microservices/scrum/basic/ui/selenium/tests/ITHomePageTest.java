@@ -10,21 +10,21 @@ import com.estafet.microservices.scrum.lib.selenium.pages.home.HomePage;
 
 public class ITHomePageTest {
 
-	HomePage homePage;
+    HomePage homePage;
 
-	@Before
-	public void before() throws Exception {
-		homePage = new HomePage();
-	}
+    @Before
+    public void before() throws Exception {
+        homePage = new HomePage();
+    }
 
-	@After
-	public void after() throws Exception {
-		homePage.close();
-	}
+    @After
+    public void after() throws Exception {
+        homePage.close();
+    }
 
-	@Test
-	public void testLinkToProjects() {
-		assertTrue(homePage.clickHereLink().isLoaded());
-	}
+    @Test
+    public void testLinkToProjects() {
+        assertTrue(homePage.clickHereLink().isLoaded());
+    }
 
 }

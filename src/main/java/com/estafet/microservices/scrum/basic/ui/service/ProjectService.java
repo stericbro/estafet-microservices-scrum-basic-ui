@@ -15,40 +15,40 @@ import io.opentracing.Tracer;
 @Service
 public class ProjectService {
 
-	@Autowired
-	private Tracer tracer;
+    @Autowired
+    private Tracer tracer;
 
-	@Autowired
-	private StoryService storyService;
+    @Autowired
+    private StoryService storyService;
 
-	@Autowired
-	private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate restTemplate;
 
-	public List<Project> getProjects() {
-		return RestHelper.getRestQuery(restTemplate, System.getenv("PROJECT_API_SERVICE_URI") + "/projects", Project.class);
-	}
+    public List<Project> getProjects() {
+        return RestHelper.getRestQuery(restTemplate, System.getenv("PROJECT_API_SERVICE_URI") + "/projects", Project.class);
+    }
 
-	public Project getProject(int projectId) {
-		tracer.activeSpan().setTag("project.id", projectId);
-		Project project = restTemplate.getForObject(System.getenv("PROJECT_API_SERVICE_URI") + "/project/{id}",
-				Project.class, projectId);
-		return project.addStories(storyService.getProjectStories(projectId))
-					  .addSprints(new ProjectSprintsCommand(projectId, restTemplate).execute());
-	}
+    public Project getProject(int projectId) {
+        tracer.activeSpan().setTag("project.id", projectId);
+        Project project = restTemplate.getForObject(System.getenv("PROJECT_API_SERVICE_URI") + "/project/{id}",
+                Project.class, projectId);
+        return project.addStories(storyService.getProjectStories(projectId))
+                      .addSprints(new ProjectSprintsCommand(projectId, restTemplate).execute());
+    }
 
-	public Project createProject(Project project) {
-		tracer.activeSpan().setTag("project.id", project.getId());
-		project = restTemplate.postForObject(System.getenv("PROJECT_API_SERVICE_URI") + "/project", project,
-				Project.class);
-		return project;
-	}
+    public Project createProject(Project project) {
+        tracer.activeSpan().setTag("project.id", project.getId());
+        project = restTemplate.postForObject(System.getenv("PROJECT_API_SERVICE_URI") + "/project", project,
+                Project.class);
+        return project;
+    }
 
-	public ProjectBurndown getBurndown(int projectId) {
-		tracer.activeSpan().setTag("project.id", projectId);
-		ProjectBurndown burndown = restTemplate.getForObject(
-				System.getenv("PROJECT_BURNDOWN_SERVICE_URI") + "/project/{id}/burndown", ProjectBurndown.class,
-				projectId);
-		return burndown;
-	}
+    public ProjectBurndown getBurndown(int projectId) {
+        tracer.activeSpan().setTag("project.id", projectId);
+        ProjectBurndown burndown = restTemplate.getForObject(
+                System.getenv("PROJECT_BURNDOWN_SERVICE_URI") + "/project/{id}/burndown", ProjectBurndown.class,
+                projectId);
+        return burndown;
+    }
 
 }

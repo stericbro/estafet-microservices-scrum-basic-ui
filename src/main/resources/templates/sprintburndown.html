@@ -1,74 +1,74 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="default">
-	<head>
-		<script src="/highcharts.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="/nv.d3.min.css"/>
-	</head>
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="default">
+    <head>
+        <script src="/highcharts.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/nv.d3.min.css"/>
+    </head>
 <body>
-	<div layout:fragment="content">
-		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
-			<script th:inline="javascript">
-         		$(function () {
-				  $('#container').highcharts({
-				    title: {
-				      text: 'Sprint Burndown Chart',
-				      x: -20 //center
-				    },
-				    colors: ['blue', 'red'],
-				    plotOptions: {
-				      line: {
-				        lineWidth: 3
-				      },
-				      tooltip: {
-				        hideDelay: 200
-				      }
-				    },
-				    subtitle: {
-				      text: /*[[${sprint.name}]]*/ 'Sprint 1',
-				      x: -20
-				    },
-				    xAxis: {
-				      categories: /*[[${sprint.days}]]*/  ['Day 1', 'Day 2']
-				    },
-				    yAxis: {
-				      title: {
-				        text: 'Hours'
-				      },
-				      plotLines: [{
-				        value: 0,
-				        width: 1
-				      }]
-				    },
-				    tooltip: {
-				      valueSuffix: ' hrs',
-				      crosshairs: true,
-				      shared: true
-				    },
-				    legend: {
-				      layout: 'vertical',
-				      align: 'right',
-				      verticalAlign: 'middle',
-				      borderWidth: 0
-				    },
-				    series: [{
-				      name: 'Ideal Burn',
-				      color: 'rgba(255,0,0,0.25)',
-				      lineWidth: 2,
-				      data: /*[[${sprint.ideal}]]*/ [0, 0]
-				    }, {
-				      name: 'Actual Burn',
-				      color: 'rgba(0,120,200,0.75)',
-				      marker: {
-				        radius: 6
-				      },
-				      data: /*[[${sprint.actual}]]*/ [0, 0]
-				    }]
-				  });
-				});
-			</script>
-		</div>
-	</div>
+    <div layout:fragment="content">
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
+            <script th:inline="javascript">
+                 $(function () {
+                  $('#container').highcharts({
+                    title: {
+                      text: 'Sprint Burndown Chart',
+                      x: -20 //center
+                    },
+                    colors: ['blue', 'red'],
+                    plotOptions: {
+                      line: {
+                        lineWidth: 3
+                      },
+                      tooltip: {
+                        hideDelay: 200
+                      }
+                    },
+                    subtitle: {
+                      text: /*[[${sprint.name}]]*/ 'Sprint 1',
+                      x: -20
+                    },
+                    xAxis: {
+                      categories: /*[[${sprint.days}]]*/  ['Day 1', 'Day 2']
+                    },
+                    yAxis: {
+                      title: {
+                        text: 'Hours'
+                      },
+                      plotLines: [{
+                        value: 0,
+                        width: 1
+                      }]
+                    },
+                    tooltip: {
+                      valueSuffix: ' hrs',
+                      crosshairs: true,
+                      shared: true
+                    },
+                    legend: {
+                      layout: 'vertical',
+                      align: 'right',
+                      verticalAlign: 'middle',
+                      borderWidth: 0
+                    },
+                    series: [{
+                      name: 'Ideal Burn',
+                      color: 'rgba(255,0,0,0.25)',
+                      lineWidth: 2,
+                      data: /*[[${sprint.ideal}]]*/ [0, 0]
+                    }, {
+                      name: 'Actual Burn',
+                      color: 'rgba(0,120,200,0.75)',
+                      marker: {
+                        radius: 6
+                      },
+                      data: /*[[${sprint.actual}]]*/ [0, 0]
+                    }]
+                  });
+                });
+            </script>
+        </div>
+    </div>
 </body>
 </html>

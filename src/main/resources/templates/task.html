@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="default">
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="default">
 <body>
-	<div layout:fragment="content">
-		<h2>Task</h2>
-		<div>
-			<form action="#" th:action="@{'/story/' + ${storyId} + '/task'}" th:object="${task}" method="post">
-				<div>
-					<label>Title:</label> <input type="text" th:field="*{title}"/>
-					<label>Description:</label> <input type="text" th:field="*{description}"/>
-					<label>Estimate:</label> <input type="text" th:field="*{initialHours}"/>
-				</div>
-				<div>
-					<input type="submit" value="Submit" />
-				</div>
-			</form>
-		</div>
-	</div>
+    <div layout:fragment="content">
+        <h2>Task</h2>
+        <div>
+            <form action="#" th:action="@{'/story/' + ${storyId} + '/task'}" th:object="${task}" method="post">
+                <div>
+                    <label>Title:</label> <input type="text" th:field="*{title}"/>
+                    <label>Description:</label> <input type="text" th:field="*{description}"/>
+                    <label>Estimate:</label> <input type="text" th:field="*{initialHours}"/>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

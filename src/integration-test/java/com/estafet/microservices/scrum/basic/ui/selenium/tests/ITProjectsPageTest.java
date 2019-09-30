@@ -11,33 +11,33 @@ import com.estafet.microservices.scrum.lib.selenium.pages.project.ProjectListPag
 
 public class ITProjectsPageTest {
 
-	ProjectListPage projectsPage;
+    ProjectListPage projectsPage;
 
-	@Before
-	public void before() throws Exception {
-		projectsPage = new ProjectListPage();
-	}
+    @Before
+    public void before() throws Exception {
+        projectsPage = new ProjectListPage();
+    }
 
-	@After
-	public void after() {
-		projectsPage.close();
-	}
+    @After
+    public void after() {
+        projectsPage.close();
+    }
 
-	@Test
-	public void testViewProjects() {
-		assertThat(projectsPage.getProjects().size(), is(2));
-		assertThat(projectsPage.getProjects().get(0), is("My Project #9384"));
-		assertThat(projectsPage.getProjects().get(1), is("My Project #1749"));
-	}
+    @Test
+    public void testViewProjects() {
+        assertThat(projectsPage.getProjects().size(), is(2));
+        assertThat(projectsPage.getProjects().get(0), is("My Project #9384"));
+        assertThat(projectsPage.getProjects().get(1), is("My Project #1749"));
+    }
 
-	@Test
-	public void testClickNewProject() {
-		assertTrue(projectsPage.clickNewProjectLink().isLoaded());
-	}
+    @Test
+    public void testClickNewProject() {
+        assertTrue(projectsPage.clickNewProjectLink().isLoaded());
+    }
 
-	@Test
-	public void testClickProject() {
-		assertTrue(projectsPage.clickProjectLink("My Project #9384").isLoaded("2"));
-	}
+    @Test
+    public void testClickProject() {
+        assertTrue(projectsPage.clickProjectLink("My Project #9384").isLoaded("2"));
+    }
 
 }
